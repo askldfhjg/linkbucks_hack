@@ -1,18 +1,51 @@
 <html>
 <head><title>linkbucks hack的选项</title></head>
 <script>
-
+function saveChanges() {
+  // 获取表单中保存的值。
+  var theValue = textarea.value;
+  console.log(theValue);
+  // 确保包含代码
+  if (!theValue) {
+    message('错误：没有指定值');
+    return;
+  }
+  // 使用Chrome扩展程序的存储API保存它。
+ // chrome.storage.sync.set({'css': cssCode}, function() {
+    // 通知保存完成。
+    //message('设置已保存');
+  //});
+}
 </script>
+<style>
+* {padding:0;margin:0;}
+h2 {
+	width:217px;
+	margin:0 auto;
+	padding-top: 50px;
+}
+textarea {
+	width:600px;
+	height:300px;
+	margin:0 auto;
+}
+#main {
+	width:600px;
+	margin:0 auto;
+	padding-top:50px;
+}
+#save {
+	width:200px;
+}
+#but {
+	margin:0 auto;
+	width:200px;
+	padding-top:30px;
+}
+</style>
 <body>
-linkbucks 地址列表
-<select id="color">
- <option value="red">红</option>
- <option value="green">绿</option>
- <option value="blue">blue</option>
- <option value="yellow">黄</option>
-</select>
-<br>
-<div id="status"></div>
-<button id="save">保存</button>
+<h2>linkbucks 地址列表</h2>
+<div id="main"><textarea id="text"></textarea></div>
+<div id="but"><button id="save" onclick="saveChanges">保存</button><div>
 </body>
 </html>
