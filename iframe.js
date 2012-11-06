@@ -1,6 +1,5 @@
 var re = /Lbjs.TargetUrl\s+=\s*['"]([a-zA-Z:\/.0-9_]+)['"];/i
 var url = document.location.href;
-return;
 chrome.extension.sendMessage({msg: "data"}, function(response){
   console.log("eee");
   console.log(response.farewell);return;
