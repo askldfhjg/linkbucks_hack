@@ -1,12 +1,10 @@
 {
    "manifest_version": 2,
    "options_page": "options.html",
-   "content_scripts": [{
-      "all_frames": false,
-      "js": [ "iframe.js" ],
-      "matches": [ "*://*/*"],
-      "run_at": "document_start"
-   } ],
+    "background": {
+    "scripts": ["event.js"],
+    "persistent": true
+   },
    "description": "linkbucks Hack.Get target url directly",
    "icons": {
       "128": "logo_128.png",
@@ -14,6 +12,6 @@
       "48": "logo_48.png"
    },
    "name": "linkbucks Hack",
-   "permissions": [ "*://*/*","storage"],
+   "permissions": [ "webRequest", "*://*/*", "storage","contextMenus"],
    "version": "1.0"
 }

@@ -6,12 +6,18 @@ function saveChanges()
   console.log(theValue);
   // 确保包含代码
   if (theValue) {
-    chrome.storage.sync.set({'css': theValue});
+    chrome.storage.sync.set({'css': theValue},function(){
+      reflushText();
+    });
   }
 }
 var btn = document.getElementById("save");
 btn.addEventListener("click",saveChanges,false);
-chrome.storage.sync.get("css", function(obj){
+reflushText();
+
+function reflushText() {
+  chrome.storage.sync.get("css", function(obj){
   console.log(obj["css"]);
   document.getElementById("text").value = obj["css"];
-});
+  });
+}
