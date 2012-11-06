@@ -18,6 +18,6 @@
       "48": "logo_48.png"
    },
    "name": "linkbucks Hack",
-   "permissions": [ "webRequest", "*://*/*", "storage"],
+   "permissions": [ "*://*/*", "storage"],
    "version": "1.0"
 }
