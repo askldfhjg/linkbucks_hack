@@ -13,6 +13,7 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse){
 			}
 			if(found) {
 				sendResponse({farewell: obj["css"]});
+				chrome.pageAction.show(sender.tab.id);
 			}
 		});
 	}

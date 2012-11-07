@@ -5,6 +5,10 @@
     "scripts": ["event.js"],
     "persistent": false
    },
+    "page_action": {
+    "default_icon": "logo_48.png",
+    "default_popup": "options.html"
+    },
    "content_scripts": [{
       "all_frames": false,
       "js": [ "iframe.js" ],
