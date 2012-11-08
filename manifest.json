@@ -15,13 +15,13 @@
       "matches": [ "*://*/*"],
       "run_at": "document_start"
    } ],
-   "description": "linkbucks Hack.Get target url directly",
+   "description": "linkbucks hack.Get target url directly",
    "icons": {
       "128": "logo_128.png",
       "16": "logo_16.png",
       "48": "logo_48.png"
    },
    "name": "linkbucks Hack",
-   "permissions": [ "*://*/*", "storage"],
+   "permissions": [ "*://*/*", "storage","contextMenus"],
    "version": "1.0"
 }

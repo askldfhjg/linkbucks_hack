@@ -6,7 +6,15 @@ function saveChanges()
   console.log(theValue);
   // 确保包含代码
   if (theValue) {
-    chrome.storage.sync.set({'css': theValue},function(){
+    theValue = theValue.replace(/\n/ig, "|").split('|');
+    var urls = [];
+    for(var i = 0;i < theValue.length; i++) {
+      if(theValue[i].length > 0) {
+        urls.push(theValue[i]);
+      }
+    }
+    console.log(urls);
+    chrome.storage.sync.set({'css': urls},function(){
       reflushText();
     });
   }
@@ -18,6 +26,17 @@ reflushText();
 function reflushText() {
   chrome.storage.sync.get("css", function(obj){
   console.log(obj["css"]);
-  document.getElementById("text").value = obj["css"];
+  var inf = "";
+  if(typeof(obj["css"]) == 'object') {
+    for(var i = 0;i < obj["css"].length; i++) {
+      if(inf.length <= 0) {
+        inf = obj["css"][i] + "\n";
+      }
+      else {
+        inf = inf + obj["css"][i] + "\n";
+      }
+    }
+  }
+  document.getElementById("text").value = inf;
   });
 }
