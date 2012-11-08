@@ -16,6 +16,11 @@ function saveChanges()
     console.log(urls);
     chrome.storage.sync.set({'css': urls},function(){
       reflushText();
+      var u =[];
+      for(var i = 0;i < urls.length; i++) {
+        u.push("*://"+urls[i]+"/*");
+      }
+      chrome.contextMenus.update("hack", {"targetUrlPatterns":u});
     });
   }
 }
