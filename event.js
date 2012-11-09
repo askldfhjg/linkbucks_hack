@@ -1,3 +1,17 @@
+chrome.runtime.onInstalled.addListener(function() {
+	var result = ["*.soso.com","*.baidu.com"];
+	chrome.storage.sync.set({'css': result},function(){});
+	var urls = [];
+	for(var i = 0;i < result.length; i++) {
+		urls.push("*://"+result[i]+"/*");
+	}
+	var createProperties = {"id":"hack", "contexts":["link","selection","editable"], "targetUrlPatterns":urls, "title":"linkbucks hack"};
+	//var createProperties = {"id":"hack", "contexts":["link","selection","editable"],"title":"linkbucks hack"};
+	chrome.contextMenus.create(createProperties);
+});
+
+
+
 chrome.extension.onMessage.addListener(function(request, sender, sendResponse){
 	if (request.msg) {
 		chrome.storage.sync.get("css", function(obj){
@@ -24,27 +38,6 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse){
 		});
 	}
 	return true;
-});
-
-
-chrome.runtime.onInstalled.addListener(function() {
-	chrome.storage.sync.get("css", function(obj){
-		console.log(obj["css"]);
-		if(typeof(obj["css"]) != "object") {
-			var result = [];
-		}
-		else
-		{
-			var result = obj["css"];
-		}
-		var urls = [];
-		for(var i = 0;i < result.length; i++) {
-			urls.push("*://"+result[i]+"/*");
-		}
-		var createProperties = {"id":"hack", "contexts":["link","selection","editable"], "targetUrlPatterns":urls, "title":"linkbucks hack"};
-		//var createProperties = {"id":"hack", "contexts":["link","selection","editable"],"title":"linkbucks hack"};
-		chrome.contextMenus.create(createProperties);
-	});
 });
 
 function onClickHandler(info, tab) {
