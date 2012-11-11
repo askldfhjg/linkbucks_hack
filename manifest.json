@@ -13,7 +13,7 @@
       "all_frames": false,
       "js": [ "iframe.js" ],
       "matches": [ "*://*/*"],
-      "run_at": "document_start"
+      "run_at": "document_end"
    } ],
    "description": "linkbucks hack.Get target url directly",
    "icons": {

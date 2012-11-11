@@ -1,5 +1,5 @@
 chrome.runtime.onInstalled.addListener(function() {
-	var result = ["*.soso.com","*.baidu.com"];
+	var result = ["*.tinybucks.net","*.qqc.co","*.picbucks.com","adf.ly"];
 	chrome.storage.sync.set({'css': result},function(){});
 	var urls = [];
 	for(var i = 0;i < result.length; i++) {
@@ -36,6 +36,10 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse){
 				chrome.pageAction.show(sender.tab.id);
 			}
 		});
+	}
+	else if(request.close) {
+		console.log(sender.tab.id);
+		chrome.tabs.remove(sender.tab.id);
 	}
 	return true;
 });
