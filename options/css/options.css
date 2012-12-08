@@ -1,0 +1,29 @@
+* { padding:0;
+	margin:0;
+	font-size: 14px;
+	outline:none;
+}
+
+body {
+	margin: 0 auto;
+	width:90%;
+}
+
+#top {
+	margin-top: 50px;
+}
+#top img {
+	float: left;
+}
+#top h1 {
+	margin-left: 70px;
+	padding-top: 13px;
+	font-size: 19px;
+}
+#tabs {
+	margin-top:30px;
+	height:480px;
+}
+#add , #delete {
+	margin-left:10px;
+}

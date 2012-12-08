@@ -1,27 +1,30 @@
 {
    "manifest_version": 2,
-   "options_page": "options.html",
+   "options_page": "options/new.html",
     "background": {
     "scripts": ["event.js"],
     "persistent": false
    },
-    "page_action": {
-    "default_icon": "logo_48.png",
-    "default_popup": "options.html"
-    },
-   "content_scripts": [{
+   "content_scripts": [
+    {
       "all_frames": false,
-      "js": [ "iframe.js" ],
+      "js": [ "start.js" ],
+      "matches": [ "*://*/*"],
+      "run_at": "document_start"
+    },
+    {
+      "all_frames": false,
+      "js": [ "end.js" ],
       "matches": [ "*://*/*"],
       "run_at": "document_end"
-   } ],
-   "description": "linkbucks hack.Get target url directly",
+    }],
+   "description": "Linkbucks Buster.Get target url directly",
    "icons": {
       "128": "logo_128.png",
       "16": "logo_16.png",
       "48": "logo_48.png"
    },
-   "name": "linkbucks Hack",
-   "permissions": [ "*://*/*", "storage","contextMenus"],
+   "name": "Linkbucks Buster",
+   "permissions": [ "*://*/*", "storage"],
    "version": "1.0"
 }

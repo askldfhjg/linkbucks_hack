@@ -1,19 +1,19 @@
 chrome.runtime.onInstalled.addListener(function() {
-	var result = ["*.tinybucks.net","*.qqc.co","*.picbucks.com","adf.ly"];
+	var result = ["*.tinybucks.net","*.qqc.co","*.picbucks.com","*.zff.co"];
 	chrome.storage.sync.set({'css': result},function(){});
 	var urls = [];
 	for(var i = 0;i < result.length; i++) {
 		urls.push("*://"+result[i]+"/*");
 	}
-	var createProperties = {"id":"hack", "contexts":["link","selection","editable"], "targetUrlPatterns":urls, "title":"linkbucks hack"};
+	//var createProperties = {"id":"hack", "contexts":["link","selection","editable"], "targetUrlPatterns":urls, "title":"linkbucks hack"};
 	//var createProperties = {"id":"hack", "contexts":["link","selection","editable"],"title":"linkbucks hack"};
-	chrome.contextMenus.create(createProperties);
+	//chrome.contextMenus.create(createProperties);
 });
 
 
 
 chrome.extension.onMessage.addListener(function(request, sender, sendResponse){
-	if (request.msg) {
+	if (request.msg) { 
 		chrome.storage.sync.get("css", function(obj){
 			console.log(obj["css"]);
 			if(typeof(obj["css"]) != "object") {
