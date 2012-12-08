@@ -61,9 +61,9 @@ function onClickHandler(info, tab) {
 				if(!isContain(urls, name)) {
 					urls.push(name);
 					chrome.storage.sync.set({'css': urls},function() {
-						alert("Add blacklist Success");
 					});
 				}
+				alert("Add blacklist Success");
 		    });
 		}
 	}

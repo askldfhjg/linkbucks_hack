@@ -18,7 +18,7 @@
       "matches": [ "*://*/*"],
       "run_at": "document_end"
     }],
-   "description": "Linkbucks Buster.Get target url directly",
+   "description": "Use Linkbucks Buster.Get target website directly.",
    "icons": {
       "128": "logo_128.png",
       "16": "logo_16.png",
@@ -26,5 +26,5 @@
    },
    "name": "Linkbucks Buster",
    "permissions": [ "*://*/*", "storage","contextMenus"],
-   "version": "1.0"
+   "version": "1.0.2"
 }
