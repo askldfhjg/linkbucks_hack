@@ -25,6 +25,6 @@
       "48": "logo_48.png"
    },
    "name": "Linkbucks Buster",
-   "permissions": [ "*://*/*", "storage"],
+   "permissions": [ "*://*/*", "storage","contextMenus"],
    "version": "1.0"
 }

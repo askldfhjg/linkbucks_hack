@@ -4,17 +4,19 @@ function saveChanges()
   var theValue = textarea.value;
   console.log(theValue);
   if (theValue) {
-    chrome.storage.sync.get("css", function(obj){
+    chrome.storage.sync.get("css", function(obj) {
       var urls = obj["css"];
-      urls.push(theValue);
-      chrome.storage.sync.set({'css': urls},function(){
-        reflushText();
-        /*var u =[];
-        for(var i = 0;i < urls.length; i++) {
-          u.push("*://"+urls[i]+"/*");
-        }
-        chrome.contextMenus.update("hack", {"targetUrlPatterns":u});*/
-      });
+      if(!isContain(urls, theValue)) {
+        urls.push(theValue);
+        chrome.storage.sync.set({'css': urls},function() {
+          reflushText();
+          /*var u =[];
+          for(var i = 0;i < urls.length; i++) {
+            u.push("*://"+urls[i]+"/*");
+          }
+          chrome.contextMenus.update("hack", {"targetUrlPatterns":u});*/
+        });
+      }
     });
   }
 }
@@ -46,7 +48,15 @@ function deleteUrl()
     reflushText();
   });
 }
-
+function isContain(arr,value)
+{
+  for(var i=0;i<arr.length;i++)
+  {
+     if(arr[i]==value)
+      return true;
+  }
+  return false;
+}
 $(function() {
   $( ".button" ).button();
   $( "#tabs" ).tabs();
