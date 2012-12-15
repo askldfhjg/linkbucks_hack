@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style type="text/css">
+		#main {
+			width:175px;
+			height:110px;
+			/*border:1px solid #F00;*/
+			color: #345;
+		}
+		#switch div {
+			font-size: 13px;
+			float: left;
+		}
+		#switch img {
+			width:55px;
+			padding-left: 4px;
+		}
+		#switch ,#black, #option{
+			padding:5px 5px;
+			height: 21px;
+			border: solid 1px white
+		}
+		#black:hover ,#option:hover, #switch:hover {
+		cursor: pointer;
+		border: solid 1px #bcd;
+		border-radius: 3px;
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f0f5fc), color-stop(1, #e0e9f4));
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff),  color-stop(0.4, hsl(215, 67%, 97%)), color-stop(0.41, hsl(213, 48%, 95%)));
+		}
+		.sep {
+			height: 0px;
+			margin: 2px 2px;
+			border: 0;
+			border-top: 1px solid #ddd;
+		}
+		#black div {
+			font-size: 13px;
+			margin-left: 22px;
+		}
+		#black img {
+			display: block;
+			width: 19px;
+			float: left;
+		}
+		#option div {
+			font-size: 13px;
+			margin-left: 23px;
+		}
+		#option img {
+			display: block;
+			width: 19px;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div id="switch" loc="on">
+			<div>Linkbucks Buster</div>
+			<img src="on.png">
+		</div>
+		<div class="sep"></div>
+		<div id="black">
+			<img src="logo_48.png">
+			<div>Edit Linkbucks Blacklist</div>
+		</div>
+		<div class="sep"></div>
+		<div id="option">
+			<img src="options.png">
+			<div>Options</div>
+		</div>
+	</div>
+	<script src="popup.js"></script>
+</body>
+</html>
