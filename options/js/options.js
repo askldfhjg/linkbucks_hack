@@ -8,8 +8,12 @@ function saveChanges()
       var urls = obj["css"];
       if(!isContain(urls, theValue)) {
         urls.push(theValue);
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-37076781-1']);
+        _gaq.push(['_trackUrl', theValue, 'blacklist']);
         chrome.storage.sync.set({'css': urls},function() {
           reflushText();
+          textarea.value = "";
           //var url = "http://localhost:8080/?params="+JSON.stringify(urls);
           //var xhr = new XMLHttpRequest();
           //xhr.open("GET", url, true);
