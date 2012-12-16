@@ -26,10 +26,10 @@
    },
    "browser_action": {
     "default_icon": "logo_48.png",
-    "default_title": "Linkbucks Buster",      // 可选，在工具提示中显示
-    "default_popup": "popup.html"        // 可选
+    "default_title": "Linkbucks Buster",
+    "default_popup": "popup.html"
     },
    "name": "Linkbucks Buster",
    "permissions": [ "*://*/*", "storage","contextMenus"],
-   "version": "1.0.2"
+   "version": "1.1.0"
 }
