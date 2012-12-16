@@ -5,9 +5,10 @@ chrome.runtime.onInstalled.addListener(function() {
 	var createProperties = {"id":"hack", "contexts":["all"],"title":"Bust This Linkbucks Site"};
 	chrome.contextMenus.create(createProperties);
 	chrome.storage.local.set({'switch': "on"},function(){});
+	chrome.storage.local.set({'share': "on"},function(){});
 	chrome.browserAction.setBadgeText({"text":"ON"});
 	chrome.browserAction.setBadgeBackgroundColor({"color":"#578bcc"});
-	chrome.tabs.create({url: "options/new.html?install=true"});
+	chrome.tabs.create({url: "options/new.html?tab=black"});
 });
 
 

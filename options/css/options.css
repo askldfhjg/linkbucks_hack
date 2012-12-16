@@ -29,10 +29,43 @@ body {
 }
 #new {
 	width: 400px;
-	height: 300px;
+	height: 200px;
 	border: 1px solid #a3a3a3;
 	margin-left: 600px;
 	margin-top: 30px;
 	border-radius: 10px;
 	background-color: #fff;
+	position: absolute;
+	padding: 20px 20px;
+}
+#new h1 {
+	width:70px;
+	margin: 0 auto;
+	padding-bottom: 10px;
+}
+#new p {
+	padding: 5px 0;
+}
+#share div{
+	float: left;
+	font-size:14px;
+}
+#share input{
+	margin-top: 14px;
+	margin-left: 30px;
+}
+#switch div {
+	font-size: 14px;
+	float: left;
+}
+#switch img {
+	width:55px;
+	padding-left: 20px;
+	cursor: pointer;
+}
+#switch, #share {
+	padding: 10px 0;
+}
+#tabs-1 {
+	position: relative;
 }

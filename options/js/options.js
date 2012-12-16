@@ -48,6 +48,24 @@ function deleteUrl()
     reflushText();
   });
 }
+function open()
+{
+  var switchs = document.getElementById("switch");
+  if(switchs.getAttribute("loc") == "on") {
+    switchs.setAttribute("loc", "off");
+    switchs.getElementsByTagName("img")[0].setAttribute("src", "../off.png");
+    chrome.browserAction.setBadgeText({"text":"OFF"});
+    chrome.browserAction.setBadgeBackgroundColor({"color":"#aaaaaa"});
+      chrome.storage.local.set({'switch': "off"},function(){});
+  }
+  else if(switchs.getAttribute("loc") == "off") {
+    switchs.setAttribute("loc", "on");
+    switchs.getElementsByTagName("img")[0].setAttribute("src", "../on.png");
+    chrome.browserAction.setBadgeText({"text":"ON"});
+    chrome.browserAction.setBadgeBackgroundColor({"color":"#578bcc"});
+    chrome.storage.local.set({'switch': "on"},function(){});
+  }
+}
 function isContain(arr,value)
 {
   for(var i=0;i<arr.length;i++)
@@ -58,9 +76,47 @@ function isContain(arr,value)
   return false;
 }
 $(function() {
+  var url = document.location.href;
+  var index = 0;
+  if(url.search("tab=black") != -1) {
+    index = 0;
+  }
+  else if(url.search("tab=option") != -1) {
+    index = 1;
+  }
   $( ".button" ).button();
-  $( "#tabs" ).tabs();
+  $( "#tabs" ).tabs({"selected":index});
   document.getElementById("add").addEventListener("click",saveChanges,false);
   document.getElementById("delete").addEventListener("click",deleteUrl,false);
+  $('#shareCheck').change(function() {
+    var n = $("input:checked").length;
+    if(n > 0) {
+      chrome.storage.local.set({'share': "on"},function(){});
+    }
+    else {
+      chrome.storage.local.set({'share': "off"},function(){});
+    }
+  });
   reflushText();
+  chrome.storage.local.get("switch", function(obj){
+    var switchs = document.getElementById("switch");
+    var img = switchs.getElementsByTagName("img")[0];
+    img.addEventListener("click",open,false);
+    if(obj['switch'] != "off") {
+      switchs.setAttribute("loc", "on");
+      img.setAttribute("src", "../on.png");
+    }
+    else {
+      switchs.setAttribute("loc", "off");
+      img.setAttribute("src", "../off.png");
+    }
+  });
+  chrome.storage.local.get("share", function(obj){
+    if(obj['share'] != "off") {
+      document.getElementById("shareCheck").setAttribute("checked", "checked");
+    }
+    else {
+      document.getElementById("shareCheck").removeAttribute("checked");
+    }
+  });
 });
