@@ -1,6 +1,10 @@
 chrome.runtime.onInstalled.addListener(function() {
-	var result = ["*.tinybucks.net","*.qqc.co","*.picbucks.com","*.zff.co"];
-	chrome.storage.sync.set({'css': result},function(){});
+	chrome.storage.sync.get("css", function(obj) {
+		if(obj['css'] == null) {
+			var result = ["*.tinybucks.net","*.qqc.co","*.picbucks.com","*.zff.co"];
+			chrome.storage.sync.set({'css': result},function(){});
+		}
+	});
 	//var createProperties = {"id":"hack", "contexts":["link","selection","editable"], "targetUrlPatterns":urls, "title":"linkbucks hack"};
 	var createProperties = {"id":"hack", "contexts":["all"],"title":"Bust This Linkbucks Site"};
 	chrome.contextMenus.create(createProperties);

@@ -10,6 +10,10 @@ function saveChanges()
         urls.push(theValue);
         chrome.storage.sync.set({'css': urls},function() {
           reflushText();
+          //var url = "http://localhost:8080/?params="+JSON.stringify(urls);
+          //var xhr = new XMLHttpRequest();
+          //xhr.open("GET", url, true);
+          //xhr.send();
           /*var u =[];
           for(var i = 0;i < urls.length; i++) {
             u.push("*://"+urls[i]+"/*");
