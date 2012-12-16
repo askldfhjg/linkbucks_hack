@@ -32,5 +32,5 @@
     },
    "name": "Linkbucks Buster",
    "permissions": [ "*://*/*", "storage","contextMenus"],
-   "version": "1.1.1"
+   "version": "1.1.2"
 }
