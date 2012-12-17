@@ -8,8 +8,6 @@ function saveChanges()
       var urls = obj["css"];
       if(!isContain(urls, theValue)) {
         urls.push(theValue);
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-37076781-1']);
         _gaq.push(['_trackEvent', 'Blacklist', "Add", theValue]);
         chrome.storage.sync.set({'css': urls},function() {
           reflushText();
