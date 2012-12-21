@@ -1,17 +1,24 @@
+var blacklist = ["*.tinybucks.net",
+				"*.qqc.co",
+				"*.picbucks.com",
+				"*.zff.co",
+				"*.allanalpass.com",
+				"*.linkbucks.com",
+				"*.ultrafiles.net",
+				"*.theseblogs.com",];
+
 chrome.runtime.onInstalled.addListener(function() {
 	chrome.storage.sync.get("css", function(obj) {
-		console.log(obj['css']);
+		var result = obj['css'];
 		if(obj['css'] == null || obj['css'].length <= 0) {
-			var result = ["*.tinybucks.net",
-							"*.qqc.co",
-							"*.picbucks.com",
-							"*.zff.co",
-							"*.allanalpass.com",
-							"*.linkbucks.com",
-							"*.ultrafiles.net",
-							"*.theseblogs.com",];
-			chrome.storage.sync.set({'css': result},function(){});
+			result = [];
 		}
+		for(i=0;i<blacklist.length;i++) {
+			if(!isContain(result, blacklist[i])) {
+				result.push(blacklist[i]);
+			}
+		}
+		chrome.storage.sync.set({'css': result},function(){});
 	});
 	//var createProperties = {"id":"hack", "contexts":["link","selection","editable"], "targetUrlPatterns":urls, "title":"linkbucks hack"};
 	var createProperties = {"id":"hack", "contexts":["all"],"title":"Bust This Linkbucks Site"};
