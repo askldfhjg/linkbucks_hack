@@ -95,7 +95,7 @@ $(function() {
   }
   $( ".button" ).button();
   $( "#tabs" ).tabs({"selected":index});
-  $( "#accordion" ).accordion({ heightStyle: "fill" , animate: 200, header:".acchead", beforeActivate: function( event, ui ) {
+  $( "#accordion" ).accordion({ heightStyle: "content" , animate: 200, header:".acchead", beforeActivate: function( event, ui ) {
     ui['oldHeader'].children(".accdetailopen").removeClass("accdetailopen").addClass("accdetailclose"); 
     ui['newHeader'].children(".accdetailclose").removeClass("accdetailclose").addClass("accdetailopen");
   }});
