@@ -90,8 +90,12 @@ $(function() {
   else if(url.search("tab=option") != -1) {
     index = 1;
   }
+  else if(url.search("tab=tutortal") != -1) {
+    index = 2;
+  }
   $( ".button" ).button();
   $( "#tabs" ).tabs({"selected":index});
+  $( "#accordion" ).accordion();
   document.getElementById("add").addEventListener("click",saveChanges,false);
   document.getElementById("delete").addEventListener("click",deleteUrl,false);
   $('#shareCheck').change(function() {

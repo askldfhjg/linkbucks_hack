@@ -27,7 +27,7 @@ chrome.runtime.onInstalled.addListener(function() {
 	chrome.storage.local.set({'share': "on"},function(){});
 	chrome.browserAction.setBadgeText({"text":"ON"});
 	chrome.browserAction.setBadgeBackgroundColor({"color":"#578bcc"});
-	chrome.tabs.create({url: "options/new.html?tab=black"});
+	chrome.tabs.create({url: "options/new.html?tab=tutortal"});
 });
 
 
