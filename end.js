@@ -5,7 +5,6 @@ var url = document.location.href;
 chrome.storage.local.get("switch", function(obj){
   if(obj['switch'] != "off") {
     chrome.extension.sendMessage({msg: url}, function(response){
-      console.log(response.farewell);
       if(response.farewell && xhr.readyState != 4) {
         //console.log(xhr.readyState);
         var text = document.getElementsByTagName("html");
