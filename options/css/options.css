@@ -69,3 +69,11 @@ body {
 #tabs-1 {
 	position: relative;
 }
+.accdetailopen {
+	color: black;
+	margin-left: 20px;
+}
+.accdetailclose {
+	color: #ddd;
+	margin-left: 20px;
+}

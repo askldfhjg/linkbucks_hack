@@ -95,7 +95,10 @@ $(function() {
   }
   $( ".button" ).button();
   $( "#tabs" ).tabs({"selected":index});
-  $( "#accordion" ).accordion();
+  $( "#accordion" ).accordion({ heightStyle: "fill" , animate: 200, header:".acchead", beforeActivate: function( event, ui ) {
+    ui['oldHeader'].children(".accdetailopen").removeClass("accdetailopen").addClass("accdetailclose"); 
+    ui['newHeader'].children(".accdetailclose").removeClass("accdetailclose").addClass("accdetailopen");
+  }});
   document.getElementById("add").addEventListener("click",saveChanges,false);
   document.getElementById("delete").addEventListener("click",deleteUrl,false);
   $('#shareCheck').change(function() {
