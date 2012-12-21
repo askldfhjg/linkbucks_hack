@@ -1,4 +1,4 @@
-var re1 = /Lbjs.TargetUrl\s+=\s*['"]([a-zA-Z:\/.0-9_]+)['"];/i;
+var re1 = /Lbjs.TargetUrl\s+=\s*['"]([a-zA-Z:\/.0-9_\-]+)['"];/i;
 var re2 = /var\s+url\s*=\s*["']([\/a-zA-Z0-9]+)["'];/im;
 var re3 = /src\s?=\s?["'](\/3market.php\?[a-zA-Z=0-9&;]+)["']/i;
 var url = document.location.href;

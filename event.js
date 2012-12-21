@@ -1,7 +1,15 @@
 chrome.runtime.onInstalled.addListener(function() {
 	chrome.storage.sync.get("css", function(obj) {
-		if(obj['css'] == null) {
-			var result = ["*.tinybucks.net","*.qqc.co","*.picbucks.com","*.zff.co"];
+		console.log(obj['css']);
+		if(obj['css'] == null || obj['css'].length <= 0) {
+			var result = ["*.tinybucks.net",
+							"*.qqc.co",
+							"*.picbucks.com",
+							"*.zff.co",
+							"*.allanalpass.com",
+							"*.linkbucks.com",
+							"*.ultrafiles.net",
+							"*.theseblogs.com",];
 			chrome.storage.sync.set({'css': result},function(){});
 		}
 	});
