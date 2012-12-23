@@ -87,6 +87,7 @@ function onClickHandler(info, tab) {
 					urls.push(name);
 					chrome.storage.sync.set({'css': urls},function() {
 					});
+					_gaq.push(['_trackEvent', 'Blacklist', "menu", name]);
 				}
 				alert("Add blacklist Success");
 		    });

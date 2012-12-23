@@ -111,6 +111,7 @@ $(function() {
     }
   });
   reflushText();
+  _gaq.push(['_trackPageview']);
   chrome.storage.local.get("switch", function(obj){
     var switchs = document.getElementById("switch");
     var img = switchs.getElementsByTagName("img")[0];

@@ -2,7 +2,7 @@
    "manifest_version": 2,
    "options_page": "options/new.html",
     "background": {
-    "scripts": ["event.js"],
+    "scripts": ["event.js", "analy.js"],
     "persistent": false
    },
    "content_scripts": [
@@ -32,5 +32,5 @@
     },
    "name": "Linkbucks Buster",
    "permissions": [ "*://*/*", "storage","contextMenus"],
-   "version": "1.1.3"
+   "version": "1.1.6"
 }
