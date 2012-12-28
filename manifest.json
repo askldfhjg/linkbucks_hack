@@ -17,6 +17,12 @@
       "js": [ "end.js" ],
       "matches": [ "*://*/*"],
       "run_at": "document_end"
+    },
+    {
+      "all_frames": false,
+      "js": [ "ilix.js" ],
+      "matches": [ "*://ilix.in/*"],
+      "run_at": "document_start"
     }],
    "description": "Use Linkbucks Buster.Get target website directly.",
    "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
@@ -31,6 +37,7 @@
     "default_popup": "popup.html"
     },
    "name": "Linkbucks Buster",
+
    "permissions": [ "*://*/*", "storage","contextMenus"],
-   "version": "1.1.6"
+   "version": "1.2.0"
 }

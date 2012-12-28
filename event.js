@@ -61,7 +61,23 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse){
 	else if(request.close) {
 		console.log(sender.tab.id);
 		chrome.tabs.remove(sender.tab.id);
-	}
+	}/*
+	else if(request.cookie) {
+		var cook = '';
+		chrome.cookies.getAll({url: "http://ilix.in"}, function(ray) {
+			for(i=0;i<ray.length;i++) {
+				if(i != 0) {
+					cook += " ";
+				}
+				cook += ray[i].name+"="+ray[i].value;
+				if(i != ray.length - 1) {
+					cook += ";";
+				}
+			}
+			console.log(cook);
+			sendResponse({cookie: cook});
+		});
+	}*/
 	return true;
 });
 function isContain(arr,value)
