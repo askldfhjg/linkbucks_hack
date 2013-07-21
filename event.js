@@ -62,7 +62,9 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse){
 		console.log(sender.tab.id);
 		if(request.url.indexOf("locked") == -1)
 		{
-			chrome.tabs.update(sender.tab.id, {url: request.close});
+			//chrome.tabs.update(sender.tab.id, {url: request.close});
+			chrome.tabs.remove(sender.tab.id);
+			chrome.tabs.create({url: request.close});
 		}
 		//chrome.tabs.update(sender.tab.id, {url: request.close});
 		//chrome.tabs.remove(sender.tab.id);
