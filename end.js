@@ -13,8 +13,8 @@ chrome.storage.local.get("switch", function(obj){
         if(arr != null) {
           var target = arr[1];
           console.log(target);
-          window.open(target);
-          chrome.extension.sendMessage({close: 1}, function(response){});
+          //window.open(target);
+          chrome.extension.sendMessage({close: target, url: url}, function(response){});
         }
       }
     });

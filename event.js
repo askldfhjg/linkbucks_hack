@@ -60,7 +60,15 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse){
 	}
 	else if(request.close) {
 		console.log(sender.tab.id);
-		chrome.tabs.remove(sender.tab.id);
+		if(request.url.indexOf("locked") == -1)
+		{
+			chrome.tabs.update(sender.tab.id, {url: request.close});
+		}
+		//chrome.tabs.update(sender.tab.id, {url: request.close});
+		//chrome.tabs.remove(sender.tab.id);
+		console.log(request.close);
+		console.log(request.url);
+		//chrome.tabs.create({url: request.close});
 	}/*
 	else if(request.cookie) {
 		var cook = '';

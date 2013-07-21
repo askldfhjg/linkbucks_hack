@@ -23,6 +23,12 @@
       "js": [ "ilix.js" ],
       "matches": [ "*://ilix.in/*"],
       "run_at": "document_start"
+    },
+    {
+      "all_frames": false,
+      "js": [ "adf.js" ],
+      "matches": [ "*://adf.ly/*"],
+      "run_at": "document_end"
     }],
    "description": "Use Linkbucks Buster.Get target website directly.",
    "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
@@ -39,5 +45,5 @@
    "name": "Linkbucks Buster",
 
    "permissions": [ "*://*/*", "storage","contextMenus"],
-   "version": "1.2.1"
+   "version": "1.2.3"
 }
