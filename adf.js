@@ -1,23 +1,25 @@
-var re = /url\s?=\s?["'](\/go\/[0-9a-z]+\/[0-9a-z]+)['"];/i;
-var re1 = /src\s?=\s?["'](\/3market.php\?[a-z0-9=&\-_%;]+)["']\s?id=/i;
+var re = /var\sysmm\s?=\s?["']([a-zA-Z0-9]+)["']/i;
 var text = document.getElementsByTagName("html");
 text = text[0].innerHTML;
+var url = document.location.href;
 var arr = re.exec(text);
-console.log(arr);
 if(arr != null) {
-	var target = arr[1];
-	console.log(target);
-	var ifr = re1.exec(text);
-	console.log(ifr);
-	if(ifr != null) {
-		var url = ifr[1].replace(/&amp;/ig, "&");
-		console.log(url);
-		xhr.open("GET", url, true);
-		xhr.onreadystatechange = function() {
-			window.open(target);
+	var ysmm = arr[1];
+	if(ysmm)
+	{
+		var K = '', h = '';
+		for (var y = 0; y < ysmm.length; y++) {
+		    if (y % 2 == 0) {
+		        K += ysmm.charAt(y);
+		    } else {
+		        h = ysmm.charAt(y) + h;
+		    }
 		}
-		xhr.send();
+		ysmm = K + h;
+		ysmm = Base64.decode(ysmm);
+		ysmm = ysmm.substring(2);
+		console.log(ysmm);
+		window.open(ysmm);
+		chrome.extension.sendMessage({close: 1, url: ysmm}, function(response){});
 	}
-	//window.open(target);
-	//chrome.extension.sendMessage({close: 1}, function(response){});
 }

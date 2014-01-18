@@ -5,7 +5,14 @@ var blacklist = ["*.tinybucks.net",
 				"*.allanalpass.com",
 				"*.linkbucks.com",
 				"*.ultrafiles.net",
-				"*.theseblogs.com",];
+				"*.theseblogs.com",
+				"*.megaline.co",
+				"*.any.gs",
+				"*.poontown.net",
+				"*.seriousdeals.net",
+				"*.dyo.gs",
+				"*.yyv.co",
+				"*.deb.gs",];
 
 chrome.runtime.onInstalled.addListener(function() {
 	chrome.storage.sync.get("css", function(obj) {
@@ -20,7 +27,6 @@ chrome.runtime.onInstalled.addListener(function() {
 		}
 		chrome.storage.sync.set({'css': result},function(){});
 	});
-	//var createProperties = {"id":"hack", "contexts":["link","selection","editable"], "targetUrlPatterns":urls, "title":"linkbucks hack"};
 	var createProperties = {"id":"hack", "contexts":["all"],"title":"Bust This Linkbucks Site"};
 	chrome.contextMenus.create(createProperties);
 	chrome.storage.local.set({'switch': "on"},function(){});
@@ -36,7 +42,6 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse){
 	if (request.msg) { 
 
 		chrome.storage.sync.get("css", function(obj){
-			console.log(obj["css"]);
 			if(typeof(obj["css"]) != "object") {
 				var result = [];
 			}
@@ -48,6 +53,10 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse){
 			for(var i = 0;i < result.length; i++) {
 				var reg = result[i].replace(/\*/ig, "[a-zA-Z0-9_\-]*");
 				var re = new RegExp(reg, "ig");
+				if(request.msg.search("adf.ly" != -1))
+				{
+					found = true;
+				}
 				if(re.exec(request.msg)) {
 					found = true;
 				}

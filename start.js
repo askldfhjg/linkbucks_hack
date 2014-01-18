@@ -2,17 +2,15 @@ var re1 = /Lbjs.TargetUrl\s+=\s*['"]([a-zA-Z:\/.0-9_\-%?=&]+)['"];/i;
 var re2 = /var\s+url\s*=\s*["']([\/a-zA-Z0-9]+)["'];/im;
 var re3 = /src\s?=\s?["'](\/3market.php\?[a-zA-Z=0-9&;]+)["']/i;
 var url = document.location.href;
-document.addEventListener("beforeload", blockScripts, true);
+document.addEventListener("beforeload", function(event){
+    var url = event.url;
+    if(url.indexOf("link.js") != -1 || url.indexOf("intermissionLink.js") != -1 || url.indexOf("view33.js") != -1)
+    {
+      event.preventDefault();
+    }
+}, true);
 var xhr = new XMLHttpRequest();
 
-function blockScripts(event)
-{
-  var url = event.url;
-  if(url.indexOf("link.js") != -1)
-  {
-    event.preventDefault();
-  }
-}
 chrome.storage.local.get("switch", function(obj){
   if(obj['switch'] != "off") {
 

@@ -23,7 +23,7 @@ if(urls != "http://ilix.in" && urls != "http://ilix.in/" && urls != "https://ili
           					if(ret != null) {
           						console.log(ret[1]);
           						window.open(ret[1]);
-          						chrome.extension.sendMessage({close: 1}, function(response){});
+          						chrome.extension.sendMessage({close: 1, url: url}, function(response){});
           					}
           				}
           			}
